@@ -6,7 +6,7 @@
 2. Remember `address.send(*)` passes 2300 gas and returns `false` in case of failure
 3. External call may revert in the following cases (sometimes even in `try-catch` block):
     - Not enough smart contract `balance` for passing `value` into the call
-    - Not enough `returndatasize()` to abi.decode return types
+    - Not enough `returndatasize()` to abi.decode return types (https://github.com/ethereum/solidity/issues/4116)
     - Not existing or destructed contract when function returns `void` due to `extcodesize` pre-call check. (https://github.com/ethereum/solidity/issues/11373, https://github.com/ethereum/solidity/issues/12725)
 4. Arrays pitfalls:
     - Stores length separately and check boundaries with `sload` on each item access
