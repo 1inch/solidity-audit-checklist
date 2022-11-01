@@ -14,5 +14,5 @@
 
 ## Yul (Solidity Assembly)
 
-1. Never assembly do `return(*, *)` inside `public` or `internal` methods, due it cause whole external call exit, similar to `revert(*, *)` but with success.
+1. Never do assembly `return(*, *)` inside `public` or `internal` methods, due it cause whole external call exit, similar to `revert(*, *)` but with success.
 2. Never assume memory at `mload(0x40)` is zeroed, because it could be soiled by previous code.
