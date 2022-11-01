@@ -2,8 +2,8 @@
 
 ## Solidity
 
-1. Remember `address.transfer()` passes 2300 gas and reverts in case of failure
-2. Remember `address.send()` passes 2300 gas and returns `false` in case of failure
+1. Remember `address.transfer(*)` passes 2300 gas and reverts in case of failure
+2. Remember `address.send(*)` passes 2300 gas and returns `false` in case of failure
 3. External call may revert in the following cases (sometimes even in `try-catch` block):
     - Not enough smart contract `balance` for passing `value` into the call
     - Not enough `returndatasize()` to abi.decode return types
@@ -14,5 +14,5 @@
 
 ## Yul (Solidity Assembly)
 
-1. Never do `return()` inside `public` or `internal` methods, due it cause whole external call exit, similar to `revert()` but with success.
+1. Never assembly do `return(*, *)` inside `public` or `internal` methods, due it cause whole external call exit, similar to `revert(*, *)` but with success.
 2. Never assume memory at `mload(0x40)` is zeroed, because it could be soiled by previous code.
