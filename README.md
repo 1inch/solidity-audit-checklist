@@ -20,7 +20,7 @@
     - Stores length separately and check boundaries with `sload` on each item access
     - Erases items on length shrinking or `pop()`, can be avoided via Yul (Solidity Assembly)
 
-## Yul (Solidity Assembly)
+## Yul Pitfalls (Solidity Assembly)
 
 1. Never do assembly `return(*, *)` inside `public` or `internal` methods, due it cause whole external call exit, similar to `revert(*, *)` but with success.
 2. Never assume memory at `mload(0x40)` is zeroed, because it could be soiled by previous code.
