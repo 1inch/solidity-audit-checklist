@@ -6,7 +6,7 @@
 2. Prefer using `calldata` instead of `memory` and avoid copying
 3. Minimize calldata size (very important for L2)
 4. Extenral calls on assembly could save thousands of gas
-5. Consider utilizing "Bit Twidding Hacks" ideas for 256-bit integers
+5. Consider utilizing ["Bit Twidding Hacks"](./solidity-bit-twidding-hacks.md) ideas for 256-bit integers
 
 ## Solidity Pitfalls
 
