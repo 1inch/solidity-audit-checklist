@@ -1,6 +1,14 @@
 # Solidity Audit Checklist
 
-## Solidity
+## Optimizations
+
+1. Minimize storage access
+2. Prefer using `calldata` instead of `memory` and avoid copying
+3. Minimize calldata size (very important for L2)
+4. Extenral calls on assembly could save thousands of gas
+5. Consider utilizing "Bit Twidding Hacks" ideas for 256-bit integers
+
+## Solidity Pitfalls
 
 1. Remember `address.transfer(*)` passes 2300 gas and reverts in case of failure
 2. Remember `address.send(*)` passes 2300 gas and returns `false` in case of failure
