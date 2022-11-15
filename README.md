@@ -15,11 +15,12 @@
 
 1. Remember `address.transfer(*)` passes 2300 gas and reverts in case of failure
 2. Remember `address.send(*)` passes 2300 gas and returns `false` in case of failure
-3. External call may revert in the following cases (sometimes even in `try-catch` block):
+3. Never use `tx.origin` for authentication, non-legitimate action could be executed even inside spam token transfer.
+4. External call may revert in the following cases (sometimes even in `try-catch` block):
     - Not enough smart contract `balance` for passing `value` into the call
     - Not enough `returndatasize()` to abi.decode return types (https://github.com/ethereum/solidity/issues/4116)
     - Not existing or destructed contract when function returns `void` due to `extcodesize` pre-call check. (https://github.com/ethereum/solidity/issues/11373, https://github.com/ethereum/solidity/issues/12725)
-4. Arrays pitfalls:
+5. Arrays pitfalls:
     - Stores length separately and check boundaries with `sload` on each item access
     - Erases items on length shrinking or `pop()`, can be avoided via Yul (Solidity Assembly)
 
