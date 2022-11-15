@@ -3,8 +3,11 @@
 ## Optimizations
 
 1. Minimize storage access
-2. Prefer using `calldata` instead of `memory` and avoid copying
-3. Minimize calldata size (very important for L2)
+2. Prefer using `calldata` instead of `memory`, avoid copying and enjoy slicing:
+    - Non-32-bytes fields of `Data calldata data` access introduces ~175 gas costs each, prefer using `uint256`/`bytes32` and downcast.
+3. Minimize calldata size (very important for L2):
+    - Multiple arrays and nested arrays can be concatenated and sliced by indexes (64 bytes economy per array)
+    - Single byte array could be just concatenated to the end of calldata to avoid having offset and length
 4. Extenral calls on assembly could save thousands of gas
 5. Consider utilizing ["Bit Twidding Hacks"](./solidity-bit-twidding-hacks.md) ideas for 256-bit integers
 
