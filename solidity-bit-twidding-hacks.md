@@ -2,6 +2,8 @@
 
 Source of inspiration: https://graphics.stanford.edu/~seander/bithacks.html
 
+One more article: https://saxenism.com/web3/solidity/language-tricks/bit-magic/intermediate/2022/09/06/Bit-Magic-Solidity.html
+
 1. Reverse bytes of `uint256` or `bytes32`:
 
 ```solidity
